@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AgileConfig.Client" Version="1.2.1.10" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.2.0" />
+    <PackageReference Include="Castle.Core" Version="4.4.1" />
+    <PackageReference Include="Castle.Core.AsyncInterceptor" Version="2.0.0" />
+    <PackageReference Include="CSRedisCore" Version="3.6.9" />
+    <PackageReference Include="FreeSql" Version="3.2.100" />
+    <PackageReference Include="FreeSql.Extensions.Linq" Version="3.2.100" />
+    <PackageReference Include="FreeSql.Provider.MySql" Version="3.2.100" />
+    <PackageReference Include="FreeSql.Repository" Version="3.2.100" />
+    <PackageReference Include="IdleBus" Version="1.5.2" />
+    <PackageReference Include="Mapster" Version="7.3.0" />
+    <PackageReference Include="MongoDB.Driver" Version="2.13.2" />
+    <PackageReference Include="MongoRepositoryNetCore" Version="1.0.2" />
+    <PackageReference Include="NEST" Version="7.17.0" />
+    <PackageReference Include="Yitter.IdGenerator" Version="1.0.12" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Dapr\Client\Client.ServerProxyFactory\Client.ServerProxyFactory.csproj" />
+    <ProjectReference Include="..\..\..\Dapr\IocModule\IocModule.csproj" />
+    <ProjectReference Include="..\..\Remote\IApplicationService\IApplicationService.csproj" />
+    <ProjectReference Include="..\DomainBase\DomainBase.csproj" />
+  </ItemGroup>
+</Project>

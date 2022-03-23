@@ -1,0 +1,801 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Domain</name>
+    </assembly>
+    <members>
+        <member name="T:Domain.Entities.Account">
+            <summary>
+            账号领域实体
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Account.LoginName">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Account.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Account.NickName">
+            <summary>
+            昵称
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Account.State">
+            <summary>
+            账户状态
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Account.User">
+            <summary>
+            用户信息
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Account.Roles">
+            <summary>
+            用户权限
+            </summary>
+        </member>
+        <member name="M:Domain.Entities.Account.CreateAccount(System.String,System.String,System.String,System.Func{System.String,System.Object[],System.String})">
+            <summary>
+            创建账号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Domain.Entities.Account.UpdateNicknameOrPassword(System.String,System.String)">
+            <summary>
+            修改密码
+            </summary>
+        </member>
+        <member name="M:Domain.Entities.Account.ChangeAccountLockState(System.Int64)">
+            <summary>
+            锁定用户
+            </summary>
+        </member>
+        <member name="M:Domain.Entities.Account.CheckAccountCanLogin(System.String)">
+            <summary>
+            检查用户状态
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Domain.Entities.DictionaryEntity">
+            <summary>
+            数据字典
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.DictionaryEntity.TenantId">
+            <summary>
+            租户Id
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.DictionaryEntity.DictionaryTypeId">
+            <summary>
+            字典类型Id
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.DictionaryEntity.DictionaryType">
+            <summary>
+            字典类型
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.DictionaryEntity.Name">
+            <summary>
+            字典名称
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.DictionaryEntity.Code">
+            <summary>
+            字典编码
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.DictionaryEntity.Value">
+            <summary>
+            字典值
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.DictionaryEntity.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.DictionaryEntity.Enabled">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.DictionaryEntity.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="T:Domain.Entities.DictionaryTypeEntity">
+            <summary>
+            数据字典类型
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.DictionaryTypeEntity.TenantId">
+            <summary>
+            租户Id
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.DictionaryTypeEntity.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.DictionaryTypeEntity.Code">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.DictionaryTypeEntity.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.DictionaryTypeEntity.Enabled">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.DictionaryTypeEntity.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="T:Domain.Entities.DocumentEntity">
+            <summary>
+            文档
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.DocumentEntity.TenantId">
+            <summary>
+            租户Id
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.DocumentEntity.ParentId">
+            <summary>
+            父级节点
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.DocumentEntity.Label">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.DocumentEntity.Type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.DocumentEntity.Name">
+            <summary>
+            命名
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.DocumentEntity.Content">
+            <summary>
+            内容
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.DocumentEntity.Html">
+            <summary>
+            Html
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.DocumentEntity.Enabled">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.DocumentEntity.Opened">
+            <summary>
+            打开组
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.DocumentEntity.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.DocumentEntity.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="T:Domain.Entities.DocumentImageEntity">
+            <summary>
+            文档图片
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.DocumentImageEntity.DocumentId">
+            <summary>
+            文档Id
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.DocumentImageEntity.Url">
+            <summary>
+            请求路径
+            </summary>
+        </member>
+        <member name="T:Domain.Entities.DocumentType">
+            <summary>
+            文档类型
+            </summary>
+        </member>
+        <member name="F:Domain.Entities.DocumentType.Group">
+            <summary>
+            分组
+            </summary>
+        </member>
+        <member name="F:Domain.Entities.DocumentType.Markdown">
+            <summary>
+            Markdown文档
+            </summary>
+        </member>
+        <member name="T:Domain.Entities.LogAbstract">
+            <summary>
+            日志
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.LogAbstract.TenantId">
+            <summary>
+            租户Id
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.LogAbstract.NickName">
+            <summary>
+            昵称
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.LogAbstract.IP">
+            <summary>
+            IP
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.LogAbstract.Browser">
+            <summary>
+            浏览器
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.LogAbstract.Os">
+            <summary>
+            操作系统
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.LogAbstract.Device">
+            <summary>
+            设备
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.LogAbstract.BrowserInfo">
+            <summary>
+            浏览器信息
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.LogAbstract.ElapsedMilliseconds">
+            <summary>
+            耗时（毫秒）
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.LogAbstract.Status">
+            <summary>
+            操作状态
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.LogAbstract.Msg">
+            <summary>
+            操作消息
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.LogAbstract.Result">
+            <summary>
+            操作结果
+            </summary>
+        </member>
+        <member name="T:Domain.Entities.LoginLogEntity">
+            <summary>
+            操作日志
+            </summary>
+        </member>
+        <member name="T:Domain.Entities.OprationLogEntity">
+            <summary>
+            操作日志
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.OprationLogEntity.ApiLabel">
+            <summary>
+            接口名称
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.OprationLogEntity.ApiPath">
+            <summary>
+            接口地址
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.OprationLogEntity.ApiMethod">
+            <summary>
+            接口提交方法
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.OprationLogEntity.Params">
+            <summary>
+            操作参数
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Permission.Label">
+            <summary>
+            权限名
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Permission.Path">
+            <summary>
+            接口地址
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Permission.Code">
+            <summary>
+            权限编码
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Permission.Type">
+            <summary>
+            权限类型
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Permission.CheckPermission">
+            <summary>
+            是否检查
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Permission.ViewId">
+            <summary>
+            视图
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Permission.Icon">
+            <summary>
+            图标
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Permission.Hidden">
+            <summary>
+            隐藏
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Permission.Enabled">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Permission.Closable">
+            <summary>
+            可关闭
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Permission.Opened">
+            <summary>
+            打开组
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Permission.NewWindow">
+            <summary>
+            打开新窗口
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Permission.External">
+            <summary>
+            链接外显
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Permission.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Permission.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="T:Domain.Entities.Personnel.EmployeeEntity">
+            <summary>
+            员工
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.EmployeeEntity.TenantId">
+            <summary>
+            租户Id
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.EmployeeEntity.UserId">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.EmployeeEntity.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.EmployeeEntity.NickName">
+            <summary>
+            昵称
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.EmployeeEntity.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.EmployeeEntity.Code">
+            <summary>
+            工号
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.EmployeeEntity.OrganizationId">
+            <summary>
+            主属部门Id
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.EmployeeEntity.PrimaryEmployeeId">
+            <summary>
+            主管Id
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.EmployeeEntity.PrimaryEmployee">
+            <summary>
+            主管
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.EmployeeEntity.PositionId">
+            <summary>
+            职位Id
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.EmployeeEntity.Phone">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.EmployeeEntity.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.EmployeeEntity.EntryTime">
+            <summary>
+            入职时间
+            </summary>
+        </member>
+        <member name="T:Domain.Entities.Personnel.EmployeeOrganizationEntity">
+            <summary>
+            员工附属部门
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.EmployeeOrganizationEntity.EmployeeId">
+            <summary>
+            员工Id
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.EmployeeOrganizationEntity.Employee">
+            <summary>
+            员工
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.EmployeeOrganizationEntity.OrganizationId">
+            <summary>
+            部门Id
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.EmployeeOrganizationEntity.Organization">
+            <summary>
+            部门
+            </summary>
+        </member>
+        <member name="T:Domain.Entities.Personnel.OrganizationEntity">
+            <summary>
+            组织架构
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.OrganizationEntity.TenantId">
+            <summary>
+            租户Id
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.OrganizationEntity.ParentId">
+            <summary>
+            父级
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.OrganizationEntity.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.OrganizationEntity.Code">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.OrganizationEntity.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.OrganizationEntity.PrimaryEmployeeId">
+            <summary>
+            主管Id
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.OrganizationEntity.PrimaryEmployee">
+            <summary>
+            主管
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.OrganizationEntity.EmployeeCount">
+            <summary>
+            员工人数
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.OrganizationEntity.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.OrganizationEntity.Enabled">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.OrganizationEntity.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="T:Domain.Entities.Personnel.PositionEntity">
+            <summary>
+            职位
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.PositionEntity.TenantId">
+            <summary>
+            租户Id
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.PositionEntity.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.PositionEntity.Code">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.PositionEntity.Description">
+            <summary>
+            说明
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.PositionEntity.Enabled">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Personnel.PositionEntity.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Role.Description">
+            <summary>
+            说明
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Role.Enabled">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.Role.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="T:Domain.Entities.RolePermission">
+            <summary>
+            角色权限
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.RolePermission.Role">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.RolePermission.Permission">
+            <summary>
+            权限
+            </summary>
+        </member>
+        <member name="T:Domain.Entities.Router">
+            <summary>
+            路由表
+            </summary>
+        </member>
+        <member name="T:Domain.Entities.User">
+            <summary>
+            用户领域
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.User.UserName">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.User.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.User.NickName">
+            <summary>
+            昵称
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.User.Avatar">
+            <summary>
+            头像
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.User.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.User.SuperAdmin">
+            <summary>
+            超级管理
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.User.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="M:Domain.Entities.User.CheckAccountCanLogin(System.String)">
+            <summary>
+            检查用户状态
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Domain.Entities.UserRole">
+            <summary>
+            用户角色
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.UserRole.UserId">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.UserRole.RoleId">
+            <summary>
+            角色Id
+            </summary>
+        </member>
+        <member name="T:Domain.Entities.ViewEntity">
+            <summary>
+            视图管理
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.ViewEntity.ParentId">
+            <summary>
+            所属节点
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.ViewEntity.Name">
+            <summary>
+            视图命名
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.ViewEntity.Label">
+            <summary>
+            视图名称
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.ViewEntity.Path">
+            <summary>
+            视图路径
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.ViewEntity.Description">
+            <summary>
+            说明
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.ViewEntity.Enabled">
+            <summary>
+            启用
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.ViewEntity.Cache">
+            <summary>
+            缓存
+            </summary>
+        </member>
+        <member name="P:Domain.Entities.ViewEntity.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="T:Domain.Enums.AccountState">
+            <summary>
+            账号状态
+            </summary>
+        </member>
+        <member name="T:Domain.Enums.PermissionType">
+            <summary>
+            权限类型
+            </summary>
+        </member>
+        <member name="F:Domain.Enums.PermissionType.Group">
+            <summary>
+            分组
+            </summary>
+        </member>
+        <member name="F:Domain.Enums.PermissionType.Menu">
+            <summary>
+            菜单
+            </summary>
+        </member>
+        <member name="F:Domain.Enums.PermissionType.Dot">
+            <summary>
+            权限点
+            </summary>
+        </member>
+        <member name="T:Domain.Enums.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="F:Domain.Enums.Sex.Unknown">
+            <summary>
+            未知
+            </summary>
+        </member>
+        <member name="F:Domain.Enums.Sex.Male">
+            <summary>
+            男
+            </summary>
+        </member>
+        <member name="F:Domain.Enums.Sex.Female">
+            <summary>
+            女
+            </summary>
+        </member>
+        <member name="T:Domain.Enums.UserGender">
+            <summary>
+            用户性别
+            </summary>
+        </member>
+        <member name="T:Domain.Specification.UniqueAccountIdSpecification">
+            <summary>
+            用户ID唯一规约
+            </summary>
+        </member>
+        <member name="T:Domain.ValueObject.OrderConsigneeInfo">
+            <summary>
+            收件人信息
+            </summary>
+        </member>
+        <member name="T:Domain.ValueObject.OrderGoodsSnapshot">
+            <summary>
+            订单详情-商品快照
+            </summary>
+        </member>
+    </members>
+</doc>

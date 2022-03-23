@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ApiSourceGenerator": {
+      "commandName": "Project",
+      "nativeDebugging": false
+    }
+  }
+}

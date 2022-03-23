@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <GetTargetPathDependsOn>$(GetTargetPathDependsOn);GetDependencyTargetPaths</GetTargetPathDependsOn>
+  </PropertyGroup>
+  <ItemGroup>
+    <!--必须引入CodeAnalysis-->
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.11.0" />
+    <!--引入Oxygen和Autofac用于编译时在Target指向nuget包位置查询dll-->
+    <PackageReference Include="Autofac" Version="6.3.0" GeneratePathProperty="true" PrivateAssets="all" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Saga\Saga.Store.Dapr\Saga.Store.Dapr.csproj" />
+    <ProjectReference Include="..\ApplicationService\ApplicationService.csproj" />
+  </ItemGroup>
+  <Target Name="GetDependencyTargetPaths">
+    <ItemGroup>
+      <!--在编译代码时使用到的类型路径中涉及的dll都必须以下面的方式引入到当前文档中，否则编译不通过-->
+      <!--调试模式-->
+      <TargetPathWithTargetPlatformMoniker Include="..\ApplicationService\bin\Debug\net6.0\ApplicationService.dll" IncludeRuntimeDependency="false" />
+      <TargetPathWithTargetPlatformMoniker Include="..\ApplicationService\bin\Debug\net6.0\Domain.dll" IncludeRuntimeDependency="false" />
+      <TargetPathWithTargetPlatformMoniker Include="..\ApplicationService\bin\Debug\net6.0\Infrastructure.dll" IncludeRuntimeDependency="false" />
+      <TargetPathWithTargetPlatformMoniker Include="..\ApplicationService\bin\Debug\net6.0\IApplicationService.dll" IncludeRuntimeDependency="false" />
+      <TargetPathWithTargetPlatformMoniker Include="..\ApplicationService\bin\Debug\net6.0\DomainBase.dll" IncludeRuntimeDependency="false" />
+      <TargetPathWithTargetPlatformMoniker Include="..\ApplicationService\bin\Debug\net6.0\InfrastructureBase.dll" IncludeRuntimeDependency="false" />
+	<TargetPathWithTargetPlatformMoniker Include="..\..\..\Dapr\Mesh\Mesh.Dapr\bin\Debug\net6.0\Mesh.Dapr.dll" IncludeRuntimeDependency="false" />
+	<TargetPathWithTargetPlatformMoniker Include="..\..\..\Dapr\Client\Client.ServerSymbol\bin\Debug\net6.0\Client.ServerSymbol.dll" IncludeRuntimeDependency="false" />
+	<TargetPathWithTargetPlatformMoniker Include="..\..\..\Dapr\Common\bin\Debug\net6.0\Common.dll" IncludeRuntimeDependency="false" />
+	   
+      <!--编译模式-->
+      <!--<TargetPathWithTargetPlatformMoniker Include="..\ApplicationService\bin\Release\net6.0\ApplicationService.dll" IncludeRuntimeDependency="false" />
+      <TargetPathWithTargetPlatformMoniker Include="..\ApplicationService\bin\Release\net6.0\Domain.dll" IncludeRuntimeDependency="false" />
+      <TargetPathWithTargetPlatformMoniker Include="..\ApplicationService\bin\Release\net6.0\Infrastructure.dll" IncludeRuntimeDependency="false" />
+      <TargetPathWithTargetPlatformMoniker Include="..\ApplicationService\bin\Release\net6.0\IApplicationService.dll" IncludeRuntimeDependency="false" />
+      <TargetPathWithTargetPlatformMoniker Include="..\ApplicationService\bin\Release\net6.0\DomainBase.dll" IncludeRuntimeDependency="false" />
+      <TargetPathWithTargetPlatformMoniker Include="..\ApplicationService\bin\Release\net6.0\InfrastructureBase.dll" IncludeRuntimeDependency="false" />
+      
+      <TargetPathWithTargetPlatformMoniker Include="..\..\..\Dapr\Mesh\Mesh.Dapr\bin\Release\net6.0\Mesh.Dapr.dll" IncludeRuntimeDependency="false" />
+      <TargetPathWithTargetPlatformMoniker Include="..\..\..\Dapr\Client\Client.ServerSymbol\bin\Release\net6.0\Client.ServerSymbol.dll" IncludeRuntimeDependency="false" />
+      <TargetPathWithTargetPlatformMoniker Include="..\..\..\Dapr\Common\bin\Release\net6.0\Common.dll" IncludeRuntimeDependency="false" />
+      <TargetPathWithTargetPlatformMoniker Include="$(PKGAutofac)\lib\netstandard2.1\Autofac.dll" IncludeRuntimeDependency="false" />-->
+    </ItemGroup>
+  </Target>
+
+</Project>

@@ -1,0 +1,42 @@
+# tye application configuration file
+# read all about it at https://github.com/dotnet/tye
+#
+# when you've given us a try, we'd love to know what you think:
+#    https://aka.ms/AA7q20u
+#
+name: dapr.sample
+services:
+ - name: accountservice
+   project: Services/AccountService/Host/Host.csproj
+   bindings:
+   - port: 8001
+ - name: jobservice
+   project: Services/JobService/JobService.csproj
+   bindings:
+   - port: 8051
+ #- name: goodsservice
+ #  project: Services/GoodsService/Host/Host.csproj
+ #  bindings:
+ #  - port: 8010
+ #- name: zipkin
+ #  external: true
+ #  bindings:
+ #   - name: http
+ #     port: 9411
+ingress:
+- name: localing
+  bindings:
+  - port: 30811
+  rules:
+  - host: localhost
+    path: /accountservice/
+    service: accountservice
+  #- host: api.dapreshop.com
+  #  path: /gs/
+  #  service: goodsservice
+extensions:
+ - name: dapr
+   #components-path: "./dapr_components/"
+   #config: claptrap_config
+   exclude-placement-container: true
+   placement-port: 6050

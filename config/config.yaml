@@ -1,0 +1,20 @@
+apiVersion: dapr.io/v1alpha1
+kind: Configuration
+metadata:
+  name: daprConfig
+spec:
+  tracing:
+    samplingRate: "1"
+    zipkin:
+      endpointAddress: http://host.docker.internal:9411/api/v2/spans
+  #nameResolution:
+  #  component: "consul"
+  #  configuration:
+  #    client:
+  #      address: "192.168.10.21:8500"
+  #    selfRegister: true
+  #    checks:
+  #      - name: "Dapr Health ${HOST_ADDRESS}--${DAPR_HTTP_PORT}"
+  #        checkID: "daprHealth:${APP_ID}"
+  #        interval: "20s"
+  #        http: "http://192.168.10.161:${DAPR_HTTP_PORT}/v1.0/healthz"

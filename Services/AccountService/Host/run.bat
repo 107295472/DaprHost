@@ -1,0 +1,1 @@
+dapr run --app-id accountservice dotnet run

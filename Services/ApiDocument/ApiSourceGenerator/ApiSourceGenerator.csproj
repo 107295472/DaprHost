@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <GetTargetPathDependsOn>$(GetTargetPathDependsOn);GetDependencyTargetPaths</GetTargetPathDependsOn>
+	  <IsRoslynComponet>true</IsRoslynComponet>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile></DocumentationFile>
+    <OutputPath></OutputPath>
+  </PropertyGroup>
+ 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Public\Base\InfrastructureBase\InfrastructureBase.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.11.0" />
+  </ItemGroup>
+  <Target Name="GetDependencyTargetPaths">
+    <ItemGroup>
+		<!--<TargetPathWithTargetPlatformMoniker Include="..\..\..\Public\Remote\IApplicationService\bin\Release\net6.0\IApplicationService.dll" IncludeRuntimeDependency="false" />
+		<TargetPathWithTargetPlatformMoniker Include="..\..\..\Dapr\Client\Client.ServerSymbol\bin\Release\net6.0\Client.ServerSymbol.dll" IncludeRuntimeDependency="false" />-->
+      
+		
+		<TargetPathWithTargetPlatformMoniker Include="..\..\..\Public\Remote\IApplicationService\bin\Debug\net6.0\IApplicationService.dll" IncludeRuntimeDependency="false" />
+       <TargetPathWithTargetPlatformMoniker Include="..\..\..\Dapr\Client\Client.ServerSymbol\bin\Debug\net6.0\Client.ServerSymbol.dll" IncludeRuntimeDependency="false" />
+    </ItemGroup>
+  </Target>
+</Project>

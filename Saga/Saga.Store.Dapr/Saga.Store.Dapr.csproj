@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Dapr\Client\Client.ServerProxyFactory\Client.ServerProxyFactory.csproj" />
+    <ProjectReference Include="..\..\Dapr\Mesh\Mesh.Dapr\Mesh.Dapr.csproj" />
+    <ProjectReference Include="..\Saga\Saga.csproj" />
+  </ItemGroup>
+</Project>

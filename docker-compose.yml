@@ -1,0 +1,92 @@
+version: "3.9"
+
+services:
+  accountservice:
+    image: account:latest
+    build:
+      context: Services/AccountService/Host/bin/Release/net6.0/publish/
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+     - "3500:3500"
+    environment:
+      - DAPR_HTTP_PORT=3500
+      - DOCKER_BASEPATH=host.docker.internal
+  accountservice-dapr:
+    image: "daprio/daprd:edge"
+    command: [
+      "./daprd",
+     "-app-id", "accountservice",
+     "-app-port", "80",
+     "-dapr-http-port", "3500",
+     "-components-path", "/dapr/components/",
+     "-config","/dapr/config.yaml",
+     "-placement-host-address", "host.docker.internal:6050" # Dapr's placement service can be reach via the docker DNS entry
+     ]
+    volumes:
+        - "./config:/dapr"
+    depends_on:
+      - accountservice
+    network_mode: "service:accountservice" # service:accountservice
+
+
+
+  #pubservice:
+  #  image: pubs:latest
+  #  restart: always
+  #  ports:
+  #   - "3501:3500"
+  #  environment:
+  #    - DAPR_HTTP_PORT=3500
+  #    - DOCKER_BASEPATH=host.docker.internal
+  #pubservice-dapr:
+  #  image: "daprio/daprd:edge"
+  #  command: [
+  #    "./daprd",
+  #   "-app-id", "publicservice",
+  #   "-app-port", "80",
+  #   "-dapr-http-port", "3500",
+  #   "-components-path", "/dapr/components/",
+  #   "-config","/dapr/config.yaml",
+  #   "-placement-host-address", "host.docker.internal:6050"
+  #   ]
+  #  volumes:
+  #      - "./config:/dapr"
+  #  depends_on:
+  #    - pubservice
+  #  network_mode: "service:pubservice"
+
+
+  #jobservice:
+  # image: job:latest
+  # restart: always
+  # environment:
+  #  - DAPR_HTTP_PORT=3500
+  #jobservice-dapr:
+  #  image: "daprio/daprd:edge"
+  #  command: [
+  #    "./daprd",
+  #   "-app-id", "jobservice",
+  #   "-app-port", "80",
+  #   "-dapr-http-port", "3500",
+  #   "-components-path", "/dapr/components",
+  #   "-config","/dapr/config.yaml",
+  #   "-placement-host-address", "host.docker.internal:6050"  Dapr's placement service can be reach via the docker DNS entry
+  #   ]
+  #  volumes:
+  #      - "./config:/dapr"
+  #  depends_on:
+  #    - jobservice
+  #  network_mode: "service:jobservice"
+  #nginx:
+  # image: nginx:latest
+  # restart: always
+  #volumes:
+  # - ./appsettings.json:/home/docker/meisha/appsettings.yaml
+  # ports:
+  #  - "80:80"  
+  #placement:
+  #  image: "daprio/dapr"
+  #  command: ["./placement", "-port", "50006"]
+  #  ports:
+  #    - "50006:50006"
