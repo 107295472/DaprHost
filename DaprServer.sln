@@ -67,7 +67,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodsActorProxyGenerator", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "run", "run", "{C8635FC0-581D-4B7B-B75C-09DA4908CE08}"
 	ProjectSection(SolutionItems) = preProject
-		.drone.yml = .drone.yml
 		ApplicationService.bat = ApplicationService.bat
 		composeStop.bat = composeStop.bat
 		docker-compose.yml = docker-compose.yml
