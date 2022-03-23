@@ -18,7 +18,8 @@ Open Command Line 命令行，运行项目里的bat
 
 #### dapr 安装   前提要安装docker
 
-下载dapr cli https://github.com/dapr/cli/releases，加入到系统环境变量里
+下载dapr cli https://github.com/dapr/cli/releases
+加入到系统环境变量里
 
 ```
 执行dapr init  安装失败，请到 https://github.com/dapr 手动下载
