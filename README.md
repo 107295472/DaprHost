@@ -1,6 +1,6 @@
 # DaprServer
 
-##### 修改自  https://github.com/sd797994/Oxygen-Dapr.EshopSample 
+##### 原项目来自大神下岗的老王  https://github.com/sd797994/Oxygen-Dapr.EshopSample 
 
 ####  本地环境
 安装tye,可到nuget.org查看最新版本 <br/>
