@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FreeSql;
+using DomainBase.Entities;
+
 namespace Domain.Services
 {
     public class PermissionMultiCreateService

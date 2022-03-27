@@ -22,6 +22,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using InfrastructureBase.Extensions;
 using Client.ServerProxyFactory.Interface;
+using DomainBase.Entities;
 
 namespace ApplicationService
 {
@@ -108,7 +109,7 @@ namespace ApplicationService
 
             //用户权限点
             List<string> Permissions = await repo.Select
-                .Where(a => a.Type == Domain.Entities.PermissionType.Dot)
+                .Where(a => a.Type == PermissionType.Dot)
                 .Where(a =>
                     repo.Orm.Select<RolePermission>()
                     .InnerJoin<UserRole>((b, c) => b.RoleId == c.RoleId && c.UserId == HttpContextExt.Current.User.Id)

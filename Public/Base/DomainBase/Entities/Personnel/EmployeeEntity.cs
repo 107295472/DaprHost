@@ -1,10 +1,10 @@
-using Domain.Enums;
 using DomainBase;
+using DomainBase.Enums;
 using FreeSql.DataAnnotations;
 using System;
 using System.Collections.Generic;
 
-namespace Domain.Entities.Personnel
+namespace DomainBase.Entities.Personnel
 {
     /// <summary>
     /// 员工

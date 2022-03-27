@@ -1,7 +1,7 @@
 using DomainBase;
 using FreeSql.DataAnnotations;
 
-namespace Domain.Entities
+namespace DomainBase.Entities
 {
     /// <summary>
     /// 权限接口
@@ -14,7 +14,7 @@ namespace Domain.Entities
         /// 权限Id
         /// </summary>
 		public long PermissionId { get; set; }
-        
+
         /// <summary>
         /// 权限
         /// </summary>

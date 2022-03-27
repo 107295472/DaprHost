@@ -4,8 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using Domain.Entities;
 using FreeSql;
+using DomainBase.Entities;
 
 namespace Domain.Specification
 {

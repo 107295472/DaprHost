@@ -1,7 +1,7 @@
 using DomainBase;
 using FreeSql.DataAnnotations;
 
-namespace Domain.Entities.Personnel
+namespace DomainBase.Entities.Personnel
 {
     /// <summary>
     /// 员工附属部门

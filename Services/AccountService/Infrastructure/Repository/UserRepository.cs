@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
 using Domain.Repository;
+using DomainBase.Entities;
 using FreeSql;
 using IApplicationService.Base;
 using InfrastructureBase.Data;

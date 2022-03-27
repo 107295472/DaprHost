@@ -15,7 +15,7 @@ namespace Host.Db
         /// </summary>
         /// <param name="services"></param>
         /// <param name="env"></param>
-        public  static void AddDbAsync(this IServiceCollection services)
+        public  static async Task AddDbAsync(this IServiceCollection services)
         {
             services.AddScoped<UnitOfWorkManager>();
             //if(dbConfig== null) throw new ArgumentNullException(nameof(dbConfig));
@@ -61,6 +61,7 @@ namespace Host.Db
 
             #region 审计数据
 
+
             //计算服务器时间
             var serverTime = fsql.Select<DualEntity>().Limit(1).First(a => DateTime.UtcNow);
             var timeOffset = DateTime.UtcNow.Subtract(serverTime);
@@ -71,6 +72,13 @@ namespace Host.Db
             };
 
             #endregion 审计数据
+
+            //同步数据
+            if (DbConfig.SyncData)
+            {
+                await DbHelper.SyncDataAsync(fsql);
+            }
+
             #endregion 初始化数据库
             #region 监听Curd操作
 

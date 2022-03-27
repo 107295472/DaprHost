@@ -1,5 +1,5 @@
-﻿using Domain.Entities;
-using DomainBase;
+﻿using DomainBase;
+using DomainBase.Entities;
 using FreeSql;
 using IApplicationService.Base;
 using InfrastructureBase.Data;

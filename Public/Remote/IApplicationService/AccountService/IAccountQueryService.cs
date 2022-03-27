@@ -1,5 +1,4 @@
-﻿using Domain.Entities;
-using DomainBase.Input;
+﻿using DomainBase.Input;
 using IApplicationService.AccountService.Dtos.Input;
 using IApplicationService.Base;
 using IApplicationService.Base.AppQuery;
@@ -8,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using DomainBase.Entities;
 
 namespace IApplicationService.AccountService
 {

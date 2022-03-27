@@ -1,6 +1,6 @@
 using FreeSql.DataAnnotations;
 
-namespace Domain.Entities
+namespace DomainBase.Entities
 {
     /// <summary>
     /// 操作日志

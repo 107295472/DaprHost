@@ -2,7 +2,7 @@ using DomainBase;
 using FreeSql.DataAnnotations;
 using System;
 
-namespace Domain.Entities.Personnel
+namespace DomainBase.Entities.Personnel
 {
     /// <summary>
     /// 职位

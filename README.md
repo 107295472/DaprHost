@@ -6,6 +6,32 @@
 安装tye,可到nuget.org查看最新版本 <br/>
 dotnet tool install --global Microsoft.Tye --version 0.11.0-alpha.22111.1<br/>
 在tye.yaml配置后运行run.bat启动 ，如需断点，附加进程调试 <br/>
+mysql请自行安装,数据库名admindb
+
+#### 配置中心
+```
+docker run -d --name myconfig --restart=always -e adminConsole=true -e db:provider=mysql -e db:conn="Server=host.docker.internal;Database=configcenter;Uid=root;Pwd=root123;Port=3306;charset=utf8" -p 4999:5000 -v /etc/localtime:/etc/localtime kklldog/agile_config:latest
+
+初始化json,SyncData和SyncStructure第一次true
+第一次运行ApplicationService/Host启动初始化数据，之后SyncData和SyncStructure改为false
+{
+  "AppConfig": {
+    "CacheType": "1",
+    "Tenant": "true"
+  },
+  "DbConfig": {
+    "ConnectionString": "Data Source=localhost;Port=3306;User ID=root;Password=root123; Initial Catalog=admindb;Charset=utf8; SslMode=none;Min pool size=1",
+    "Curd": "true",
+    "DataType": "0",
+    "MonitorCommand": "false",
+    "RedisConnStr": "localhost:6379,defaultDatabase=14",
+    "SyncData": "true",
+    "SyncStructure": "true"
+  }
+}
+```
+
+
 
 #### 生产环境
 docker环境运行<br/>

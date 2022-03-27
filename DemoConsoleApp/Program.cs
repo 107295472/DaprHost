@@ -2,9 +2,9 @@
 using Yitter.IdGenerator;
 using System.Threading.Tasks;
 using FreeSql;
-using Domain.Entities.Personnel;
 using System.Text;
 using System.Linq;
+using DomainBase.Entities.Personnel;
 
 namespace DemoConsoleApp
 {

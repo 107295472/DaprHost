@@ -1,6 +1,6 @@
 ﻿using Autofac;
 using Client.ServerProxyFactory.Interface;
-using Domain.Entities;
+using DomainBase.Entities;
 using IApplicationService.AccountService.Dtos.Output;
 using IApplicationService.Base.AccessToken;
 using InfrastructureBase;

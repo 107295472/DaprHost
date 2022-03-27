@@ -1,5 +1,6 @@
 ﻿using Domain.Enums;
 using DomainBase;
+using DomainBase.Entities;
 using FreeSql.DataAnnotations;
 using System;
 using System.Collections.Generic;

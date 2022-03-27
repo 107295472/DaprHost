@@ -1,4 +1,4 @@
-﻿namespace Domain.Entities
+﻿namespace DomainBase.Entities
 {
     /// <summary>
     /// 权限类型

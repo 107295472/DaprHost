@@ -2,7 +2,7 @@ using DomainBase;
 using FreeSql.DataAnnotations;
 using System.Collections.Generic;
 
-namespace Domain.Entities.Personnel
+namespace DomainBase.Entities.Personnel
 {
     /// <summary>
     /// 组织架构

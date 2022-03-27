@@ -5,6 +5,7 @@ using Domain.Repository;
 using Domain.Services;
 using Domain.Specification;
 using Domain.ValueObject;
+using DomainBase.Entities;
 using IApplicationService.AccountService;
 using IApplicationService.Base.AppEvent;
 using IApplicationService.GoodsService;

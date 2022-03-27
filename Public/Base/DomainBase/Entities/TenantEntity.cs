@@ -3,7 +3,7 @@ using FreeSql;
 using FreeSql.DataAnnotations;
 using System;
 
-namespace Domain.Entities
+namespace DomainBase.Entities
 {
     /// <summary>
     /// 租户

@@ -1,7 +1,7 @@
 using DomainBase;
 using FreeSql.DataAnnotations;
 
-namespace Domain.Entities
+namespace DomainBase.Entities
 {
     /// <summary>
     /// 租户权限

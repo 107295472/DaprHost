@@ -2,7 +2,7 @@ using DomainBase;
 using FreeSql.DataAnnotations;
 using System.Collections.Generic;
 
-namespace Domain.Entities
+namespace DomainBase.Entities
 {
     /// <summary>
     /// 权限

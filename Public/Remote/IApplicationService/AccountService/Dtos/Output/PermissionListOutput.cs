@@ -1,5 +1,4 @@
-﻿
-using Domain.Entities;
+﻿using DomainBase.Entities;
 
 namespace IApplicationService.AccountService.Dtos.Output
 {

@@ -15,7 +15,7 @@ namespace InfrastructureBase
     {
         public static ConfigClient Client;
     }
-    public class AppConfig
+    public static class AppConfig
     {
         public static bool Tenant { get { return App.Client[$"{nameof(DbConfig)}:{ nameof(Tenant)}"].ToBool(); } }
         public static CacheType CacheType { get { return (CacheType)Enum.Parse(typeof(CacheType), App.Client[$"{nameof(AppConfig)}:{ nameof(CacheType)}"]); } }
@@ -55,12 +55,22 @@ namespace InfrastructureBase
         /// <summary>
         /// 同步结构
         /// </summary>
-        public static bool SyncStructure { get; set; } = false;
+        public static bool SyncStructure { 
+            get 
+            {
+                return App.Client[$"{nameof(DbConfig)}:{ nameof(SyncStructure)}"].ToBool();
+            } 
+        }
 
         /// <summary>
         /// 同步数据
         /// </summary>
-        public static bool SyncData { get; set; } = false;
+        public static bool SyncData {
+            get
+            {
+                return App.Client[$"{nameof(DbConfig)}:{ nameof(SyncData)}"].ToBool();
+            }
+        }
 
         /// <summary>
         /// 建库

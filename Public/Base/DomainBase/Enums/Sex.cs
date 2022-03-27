@@ -1,4 +1,4 @@
-﻿namespace Domain.Enums
+﻿namespace DomainBase.Enums
 {
     /// <summary>
     /// 性别

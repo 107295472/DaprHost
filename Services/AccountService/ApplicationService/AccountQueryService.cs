@@ -29,6 +29,7 @@ using InfrastructureBase.Helpers;
 using DomainBase.Input;
 using DomainBase.Output;
 using Client.ServerProxyFactory.Interface;
+using DomainBase.Entities;
 
 namespace ApplicationService
 {

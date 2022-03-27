@@ -19,6 +19,7 @@ using IApplicationService.Base;
 using InfrastructureBase.Data;
 using InfrastructureBase.Extensions;
 using Client.ServerProxyFactory.Interface;
+using DomainBase.Entities;
 
 namespace ApplicationService
 {

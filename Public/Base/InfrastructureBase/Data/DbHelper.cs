@@ -1,5 +1,4 @@
-﻿using Domain.Entities;
-using DomainBase;
+﻿using DomainBase;
 using FreeSql;
 using FreeSql.Aop;
 using FreeSql.DataAnnotations;
@@ -36,7 +35,8 @@ namespace InfrastructureBase.Data
         {
             List<string> assemblyNames = new List<string>()
             {
-                "Domain.Entities"
+                "Domain",
+                "DomainBase"
             };
 
             List<Type> entityTypes = new List<Type>();
@@ -243,25 +243,6 @@ namespace InfrastructureBase.Data
                     repo.UnitOfWork = unitOfWork;
                     insert = insert.WithTransaction(tran);
                 }
-
-                //var isIdentity = CheckIdentity<T>();
-                //if (isIdentity)
-                //{
-                //    if (dbConfig.Type == DataType.SqlServer)
-                //    {
-                //        var insrtSql = insert.AppendData(data).InsertIdentity().ToSql();
-                //        await repo.Orm.Ado.ExecuteNonQueryAsync($"SET IDENTITY_INSERT {tableName} ON\n {insrtSql} \nSET IDENTITY_INSERT {tableName} OFF");
-                //    }
-                //    else
-                //    {
-                //        await insert.AppendData(data).InsertIdentity().ExecuteAffrowsAsync();
-                //    }
-                //}
-                //else
-                //{
-                //    repo.DbContextOptions.EnableAddOrUpdateNavigateList = true;
-                //    await repo.InsertAsync(data);
-                //}
                 repo.DbContextOptions.EnableAddOrUpdateNavigateList = true;
                 await repo.InsertAsync(data);
                 Console.WriteLine($" table: {tableName} sync data succeed");
@@ -271,7 +252,68 @@ namespace InfrastructureBase.Data
                 Console.WriteLine($" table: {tableName} sync data failed.\n{ex.Message}");
             }
         }
+        /// <summary>
+        /// 同步数据
+        /// </summary>
+        /// <returns></returns>
+        public static async Task SyncDataAsync(IFreeSql db)
+        {
+            try
+            {
+                //db.Aop.CurdBefore += (s, e) =>
+                //{
+                //    Console.WriteLine($"{e.Sql}\r\n");
+                //};
 
+                Console.WriteLine("\r\n sync data started");
+
+                db.Aop.AuditValue += SyncDataAuditValue;
+
+                var fileName = AppConfig.Tenant ? "data-share.json" : "data.json";
+                var filePath = Path.Combine(AppContext.BaseDirectory, $"Db/Data/{fileName}").ToPath();
+                var jsonData = FileHelper.ReadFile(filePath);
+                var data = JsonConvert.DeserializeObject<Data>(jsonData);
+
+                using (var uow = db.CreateUnitOfWork())
+                using (var tran = uow.GetOrBeginTransaction())
+                {
+                    var dualRepo = db.GetRepositoryBase<DualEntity>();
+                    dualRepo.UnitOfWork = uow;
+                    if (!await dualRepo.Select.AnyAsync())
+                    {
+                        await dualRepo.InsertAsync(new DualEntity { });
+                    }
+
+                    //admin
+                    await InitDtDataAsync(db, uow, tran, data.DictionaryTypes);
+                    await InitDtDataAsync(db, uow, tran, data.Dictionaries);
+                    await InitDtDataAsync(db, uow, tran, data.ApiTree);
+                    await InitDtDataAsync(db, uow, tran, data.ViewTree);
+                    await InitDtDataAsync(db, uow, tran, data.PermissionTree);
+                    await InitDtDataAsync(db, uow, tran, data.Users);
+                    await InitDtDataAsync(db, uow, tran, data.Roles);
+                    await InitDtDataAsync(db, uow, tran, data.UserRoles);
+                    await InitDtDataAsync(db, uow, tran, data.RolePermissions);
+                    await InitDtDataAsync(db, uow, tran, data.Tenants);
+                    await InitDtDataAsync(db, uow, tran, data.TenantPermissions);
+                    await InitDtDataAsync(db, uow, tran, data.PermissionApis);
+
+                    //人事
+                    await InitDtDataAsync(db, uow, tran, data.Positions);
+                    await InitDtDataAsync(db, uow, tran, data.OrganizationTree);
+                    await InitDtDataAsync(db, uow, tran, data.Employees);
+                    uow.Commit();
+                }
+
+                db.Aop.AuditValue -= SyncDataAuditValue;
+
+                Console.WriteLine(" sync data succeed\r\n");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($" sync data failed.\n{ex.Message}");
+            }
+        }
         /// <summary>
         /// 同步数据审计方法
         /// </summary>

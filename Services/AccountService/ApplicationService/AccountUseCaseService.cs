@@ -24,6 +24,7 @@ using IApplicationService.Base.AppEvent;
 using IApplicationService.GoodsService.Dtos.Event;
 using Domain.Events;
 using Client.ServerProxyFactory.Interface;
+using DomainBase.Entities;
 
 namespace ApplicationService
 {

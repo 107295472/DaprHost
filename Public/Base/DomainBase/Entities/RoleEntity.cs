@@ -3,7 +3,7 @@ using FreeSql.DataAnnotations;
 using System;
 using System.Collections.Generic;
 
-namespace Domain.Entities
+namespace DomainBase.Entities
 {
     /// <summary>
     /// 角色
