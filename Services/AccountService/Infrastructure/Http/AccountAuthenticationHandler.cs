@@ -70,7 +70,7 @@ namespace Infrastructure.Http
         }
         private async Task<CurrentUser> GetAccountInfo(IStateManager stateManager)
         {
-            var token = HttpContextExt.Current.HttpContext.Request.Headers.FirstOrDefault(x => x.Key == "authentication").Value;
+            var token = HttpContextExt.Current.HttpContext.Request.Headers.FirstOrDefault(x => x.Key == "Authorization").Value;
             if(token=="")
                 throw new InfrastructureException("授权登录Token已过期,请重新登录!");
             var usertoken = await stateManager.GetState<AccessTokenItem>(new AccountLoginAccessToken(token));

@@ -13,12 +13,12 @@ namespace IApplicationService.Base
         {
 
         }
-        public ApiResult(string message = null, int code = 1, object data = null)
+        public ApiResult(string message = null, int code = 0, object data = null)
         {
             if (message != null)
                 Message = message;
             Code = code;
-            if (code != 1)
+            if (code != 0)
             {
                 Success = false;
             }
@@ -36,16 +36,16 @@ namespace IApplicationService.Base
         public object Result { get; set; }
         internal object resultType { get; set; }
 
-        public static ApiResult Ok(string message = null, int code = 1)
+        public static ApiResult Ok(string message = null, int code = 0)
         {
             return new ApiResult(message ?? "操作成功", code);
         }
 
-        public static ApiResult Ok(object Data, string message = null, int code = 1)
+        public static ApiResult Ok(object Data, string message = null, int code = 0)
         {
             return new ApiResult(message ?? "操作成功", code, Data);
         }
-        public static ApiResult<T> Ok<T>(Task<T> Data, string message = null, int code = 1)
+        public static ApiResult<T> Ok<T>(Task<T> Data, string message = null, int code = 0)
         {
             return new ApiResult<T>(message ?? "操作成功", code, Data);
         }
@@ -56,11 +56,11 @@ namespace IApplicationService.Base
     }
     public class ApiResult<T> : ApiResult
     {
-        public ApiResult(string message = null, int code = 1, Task<T> data = null)
+        public ApiResult(string message = null, int code = 0, Task<T> data = null)
         {
             if (message != null)
                 Message = message;
-            if (code != 1)
+            if (code != 0)
                 Code = code;
             if (data != null)
                 TaskData = data;

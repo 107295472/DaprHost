@@ -117,10 +117,10 @@ namespace ApplicationService
         public async Task<ApiResult> AccountLogin(AuthLoginInput input)
         {
 
-            var ip = System.Net.NetworkInformation.NetworkInterface.GetAllNetworkInterfaces().Select(p => p.GetIPProperties()).SelectMany(p => p.UnicastAddresses)
-                   .Where(p => p.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork && !System.Net.IPAddress.IsLoopback(p.Address))
-                   .FirstOrDefault()?.Address.ToString();
-            return ApiResult.Ok($"主机---{ip}");
+            //var ip = System.Net.NetworkInformation.NetworkInterface.GetAllNetworkInterfaces().Select(p => p.GetIPProperties()).SelectMany(p => p.UnicastAddresses)
+            //       .Where(p => p.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork && !System.Net.IPAddress.IsLoopback(p.Address))
+            //       .FirstOrDefault()?.Address.ToString();
+            //return ApiResult.Ok($"主机---{ip}");
             var account = await repo.Select.Where(x => x.UserName == input.UserName).FirstAsync();
           
             if (account == null)
@@ -132,7 +132,7 @@ namespace ApplicationService
             await BuildLoginCache(account);
             var loginToken = BaseCommon.GetMD5SaltCode(Guid.NewGuid().ToString());
             await stateManager.SetState(new AccountLoginAccessToken(loginToken, new AccessTokenItem(account.Id)));
-            await eventBus.SendEvent(EventTopicDictionary.Account.LoginSucc, new LoginAccountSuccessEvent(loginToken));
+            //await eventBus.SendEvent(EventTopicDictionary.Account.LoginSucc, new LoginAccountSuccessEvent(loginToken));
 
             return ApiResult.Ok(new AccountLoginResponse(loginToken));
 

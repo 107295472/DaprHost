@@ -4,10 +4,10 @@ services:
    project: Services/AccountService/Host/Host.csproj
    bindings:
    - port: 8001
- - name: jobservice
-   project: Services/JobService/JobService.csproj
-   bindings:
-   - port: 8051
+ #- name: jobservice
+ #  project: Services/JobService/JobService.csproj
+ #  bindings:
+ #  - port: 8051
  #- name: goodsservice
  #  project: Services/GoodsService/Host/Host.csproj
  #  bindings:
@@ -20,7 +20,7 @@ services:
 ingress:
 - name: localing
   bindings:
-  - port: 30811
+  - port: 5000
   rules:
   - host: localhost
     path: /accountservice/
