@@ -17,7 +17,7 @@ services:
     command: [
       "./daprd",
      "-app-id", "accountservice",
-     "-app-port", "80",
+     "-app-port", "8001",
      "-dapr-http-port", "3500",
      "-components-path", "/dapr/components/",
      "-config","/dapr/config.yaml",

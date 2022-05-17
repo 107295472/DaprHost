@@ -50,9 +50,9 @@ builder.Services.AddMemoryCache();
 builder.Services.AddHostedService<CustomerService>();
 
 //uuid
-BaseCommon.RegGlobalID(Convert.ToUInt16(Configuration.GetSection("uuid").Value));
+BaseCommon.RegGlobalID(Convert.ToUInt16(Configuration.GetSection("HostConfig").Value));
 //db
-builder.Services.AddDbAsync();
+await builder.Services.AddDbAsync();
 #region 缓存
 
 if (AppConfig.CacheType == CacheType.Redis)

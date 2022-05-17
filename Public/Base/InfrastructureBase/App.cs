@@ -21,6 +21,10 @@ namespace InfrastructureBase
         public static CacheType CacheType { get { return (CacheType)Enum.Parse(typeof(CacheType), App.Client[$"{nameof(AppConfig)}:{ nameof(CacheType)}"]); } }
         public static string RedisConnStr { get { return App.Client[$"{nameof(DbConfig)}:{ nameof(RedisConnStr)}"]; } }
     }
+    public static class HostConfig
+    {
+        public static string ip { get; set; }
+    }
     /// <summary>
     /// 数据库配置
     /// </summary>
