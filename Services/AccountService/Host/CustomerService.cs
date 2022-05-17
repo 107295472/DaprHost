@@ -45,12 +45,17 @@ namespace Host
             c.Address = new Uri(apisix);
             using var client = new ConsulClient(c);
             string json ="{\"weight\": 1, 	\"max_fails\": 2, 	\"fail_timeout\": 1 }";
-            var putPair = new KVPair($"upstreams/webpages/{host}:3500")
+            string key = $"upstreams/webpages/{host}";
+            var result=await client.KV.Get(key);
+            if (result.Response==null)
             {
-                Value = Encoding.UTF8.GetBytes(json)
-            };
-
-            var putAttempt = await client.KV.Put(putPair);
+                var putPair = new KVPair(key)
+                {
+                    Value = Encoding.UTF8.GetBytes(json)
+                };
+                _= await client.KV.Put(putPair);
+            }
+           
         }
         public async Task StopAsync(CancellationToken cancellationToken)
         {
