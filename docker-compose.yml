@@ -12,7 +12,7 @@ services:
     environment:
       - DAPR_HTTP_PORT=3500
       - DOCKER_BASEPATH=host.docker.internal
-      - HostIP=192.168.10.161
+      - HostIP=192.168.10.161:3500
       - ApisixUrl=http://192.168.10.21:8500
   accountservice-dapr:
     image: "daprio/daprd:edge"
