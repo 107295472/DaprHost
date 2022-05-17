@@ -22,7 +22,15 @@ namespace Host
         }
         public async Task StartAsync(CancellationToken cancellationToken)
         {
-            await RegConsul();
+            var host = Environment.GetEnvironmentVariable("HostIP");
+            if (host == null)
+                throw new ApplicationException("请设置宿主机HostIP变量");
+
+            var apisixUrl= Environment.GetEnvironmentVariable("ApisixUrl");
+            if(apisixUrl == null)
+                throw new ApplicationException("请设置网关ApisixUrl变量");
+
+            await RegConsul(apisixUrl,host);
             //_ = Task.Delay(20 * 1000).ContinueWith(async t =>
             //{
             //    var port = Environment.GetEnvironmentVariable("DAPR_HTTP_PORT");
@@ -31,20 +39,18 @@ namespace Host
             //_ = Task.Delay(20 * 1000).ContinueWith(async t => await stateManager.SetState(new PermissionState() { Key = "account", Data = AuthenticationManager.AuthenticationMethods }));
             await Task.CompletedTask;
         }
-        public  async Task RegConsul()
+        public  async Task RegConsul(string apisix,string host)
         {
             ConsulClientConfiguration c=new ConsulClientConfiguration();
-            c.Address = new Uri("http://192.168.10.21:8500");
-            using (var client = new ConsulClient(c))
+            c.Address = new Uri(apisix);
+            using var client = new ConsulClient(c);
+            string json ="{\"weight\": 1, 	\"max_fails\": 2, 	\"fail_timeout\": 1 }";
+            var putPair = new KVPair($"upstreams/webpages/{host}:3500")
             {
-                
-                var putPair = new KVPair("acc")
-                {
-                    Value = Encoding.UTF8.GetBytes(AppSettings.Configuration["HostIP"])
-                };
+                Value = Encoding.UTF8.GetBytes(json)
+            };
 
-                var putAttempt = await client.KV.Put(putPair);
-            }
+            var putAttempt = await client.KV.Put(putPair);
         }
         public async Task StopAsync(CancellationToken cancellationToken)
         {
